@@ -1,59 +1,21 @@
 uniform sampler2D texture_0;
-uniform sampler2D texture_1;
-uniform float angle;
 uniform float mouseX;
 uniform float mouseY;
-uniform float quantidadeBlur;
-uniform int blurAtivo;
-uniform int lupaBlur;
+uniform float zoomFactor;
+uniform float zoomRadius;
 varying vec4 v_texCoord;
 
 void main()
 {
-    if(lupaBlur == 0){
-        vec2 uv = v_texCoord.xy;
-        vec2 center = vec2(0.5, 0.5); 
-        vec2 pos = uv - center; 
+    vec2 uv = v_texCoord.xy;
+    vec2 mousePos = vec2(mouseX / 600.0, mouseY / 600.0);
+    float distanceFromMouse = distance(uv, mousePos);
 
-        float cosA = cos(angle);
-        float sinA = sin(angle);
-        vec2 rotatedPos = vec2(
-            pos.x * cosA - pos.y * sinA,
-            pos.x * sinA + pos.y * cosA
-        );
-
-        vec4 color;
-        if(rotatedPos.x > 0.0){
-            color = texture2D(texture_0, uv);
-        }
-        else{
-            color = texture2D(texture_1, uv);
-        }
-
-        gl_FragColor = color;
-    }
-    else{
-        vec2 textura_offset = 1.0 / vec2(textureSize(texture_0, 0));
-        vec4 result = texture2D(texture_0, v_texCoord.xy);
-
-        float tamanho_janela = 81.0;
-        float raio = 0.3;
-
-        vec2 mousePos = vec2(mouseX / 600.0, mouseY / 600.0);
-
-        float distancia = distance(v_texCoord.xy, mousePos);
-
-        if(blurAtivo == 1 && distancia > raio){
-            vec4 sum = vec4(0.0);
-            for(int x = -4; x <= 4; x++){
-                for(int y = -4; y <= 4; y++){
-                    sum += texture2D(texture_0, v_texCoord.xy + vec2(float(x), float(y)) * textura_offset * quantidadeBlur);
-                }
-            }
-            result = sum / tamanho_janela;
-        }
-
-        gl_FragColor = result;
+    if (distanceFromMouse < zoomRadius) {
+        vec2 zoomedUV = (uv - mousePos) * zoomFactor + mousePos;
+        gl_FragColor = texture2D(texture_0, zoomedUV);
+    } else {
+        gl_FragColor = texture2D(texture_0, uv);
     }
 }
 /*

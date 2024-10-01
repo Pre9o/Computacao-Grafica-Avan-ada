@@ -151,3 +151,47 @@
 	"Bmp.h"
 	"glsl.h"
 
+1727694432 source:c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\src\bmp.cpp
+	"Bmp.h"
+	<string.h>
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\src\bmp.h
+	<stdio.h>
+	<stdlib.h>
+
+1727694432 source:c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\src\glsl.cpp
+	"glsl.h"
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\src\glsl.h
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\include\gl\gl.h
+
+1727694432 c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1727803362 source:c:\users\naoca\onedrive\햞ea de trabalho\cga\demos\demos\demos_gl 3.x\glsl_5_texture\src\main.cpp
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<math.h>
+	"Bmp.h"
+	"glsl.h"
+

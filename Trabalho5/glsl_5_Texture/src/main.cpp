@@ -34,17 +34,23 @@ GLint loc_u_mouseY;
 GLint loc_u_quantidadeBlur;
 GLint loc_u_angle;
 GLint loc_u_lupaBlur;
+GLint loc_u_zoomFactor;
+GLint loc_u_zoomRadius;
 
 float brilho = 0;
 float morphFactor = 0.1;
 float quantidadeBlur = 0.1;
 float angle = 0.0f;
 
+
 float mouseX = 0.0f;
 float mouseY = 0.0f;
 
 int blurAtivo = 1;
 int lupaBlur = 1;
+
+float zoomFactor = 0.5f; // Defina o fator de zoom desejado
+float zoomRadius = 0.2f;
 
 Bmp *img1, *img2;
 unsigned char *data1, *data2;
@@ -63,7 +69,7 @@ void init_gl(void)
    //glPolygonMode(GL_FRONT_AND_BACK, GL_LINE);
    glPolygonMode(GL_FRONT_AND_BACK, GL_FILL);
 
-   img1 = new Bmp("glsl_5_Texture\\resource\\lena.bmp");
+   img1 = new Bmp("glsl_5_Texture\\resource\\teste.bmp");
    img1->convertBGRtoRGB();
    data1 = img1->getImage();
    if( data1 == NULL )
@@ -133,6 +139,8 @@ void display(void)
    glUniform1f(loc_u_quantidadeBlur, quantidadeBlur);
    glUniform1f(loc_u_angle, angle);
    glUniform1i(loc_u_lupaBlur, lupaBlur);
+   glUniform1f(loc_u_zoomFactor, zoomFactor);
+   glUniform1f(loc_u_zoomRadius, zoomRadius);
 
    morphFactor += 0.01;
    angle += 0.01;
@@ -227,6 +235,8 @@ int main(int argc, char** argv)
    loc_u_quantidadeBlur = shader1->getUniformLoc("quantidadeBlur");
    loc_u_angle = shader1->getUniformLoc("angle");
    loc_u_lupaBlur = shader1->getUniformLoc("lupaBlur");
+   loc_u_zoomFactor = shader1->getUniformLoc("zoomFactor");
+   loc_u_zoomRadius = shader1->getUniformLoc("zoomRadius");
 
    //printf(" IDs: %d %d ", loc_u_texture, loc_u_bright);
 
