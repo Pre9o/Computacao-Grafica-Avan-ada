@@ -8,15 +8,20 @@
 GLint loc_u_resolution;
 GLint loc_u_center;
 GLint loc_u_zoom;
-GLint loc_iTime;
+GLint loc_iterations;
 
 Glsl *shader = NULL;
 MyGL *gl = NULL;
 
+int iterations = 512;
+
 float zoom = 200.0f;
 float centerX = 0.0f;
 float centerY = 0.0f;
-float time = 0.0;
+float maxZoom = 40000000.0f;
+
+bool isDragging = false;
+float lastMouseX, lastMouseY;
 
 void init_gl(void)
 {
@@ -30,10 +35,12 @@ void display(void)
 
     shader->setActive(true);
 
-    glUniform2f(loc_u_resolution, 800.0f, 450.0f);
+    glUniform2f(loc_u_resolution, 800.0f, 800.0f);
     glUniform2f(loc_u_center, centerX, centerY);
     glUniform1f(loc_u_zoom, zoom);
-    glUniform1f(loc_iTime, time);
+    glUniform1i(loc_iterations, iterations);
+
+    printf("centerX: %f, centerY: %f, zoom: %f, iterations: %d\n", centerX, centerY, zoom, iterations);
 
 
     glBegin(GL_QUADS);
@@ -50,9 +57,11 @@ void display(void)
 
 void timer(int value)
 {
-    zoom *= 1.01; // Aumenta o zoom em 1% a cada chamada
-    glutPostRedisplay(); // Redesenha a cena
-    glutTimerFunc(16, timer, 0); // Chama a função novamente após 16ms (~60 FPS)
+    if(zoom < maxZoom){
+        zoom *= 1.01f;
+    }
+    glutPostRedisplay(); 
+    glutTimerFunc(32, timer, 0); 
 }
 
 void reshape(int w, int h)
@@ -66,14 +75,29 @@ void reshape(int w, int h)
 
 void mouse(int button, int state, int x, int y)
 {
-    if (state == GLUT_DOWN)
-    {
-        // Converte as coordenadas da tela para coordenadas do espaço de visualização
-        float newX = (x - 200.0f) / zoom + centerX;
-        float newY = (200.0f - y) / zoom + centerY;
+    if(button == GLUT_LEFT_BUTTON){
+        if(state == GLUT_DOWN){
+            isDragging = true;
+            lastMouseX = x;
+            lastMouseY = y;
+        }
+        else if(state == GLUT_UP){
+            isDragging = false;
+        }
+    }
+}
 
-        centerX = newX;
-        centerY = newY;
+void motion(int x, int y)
+{
+    if(isDragging){
+        float deltaX = (x - lastMouseX) / zoom;
+        float deltaY = (lastMouseY - y) / zoom;
+
+        centerX -= deltaX;
+        centerY -= deltaY;
+
+        lastMouseX = x;
+        lastMouseY = y;
 
         glutPostRedisplay();
     }
@@ -81,13 +105,22 @@ void mouse(int button, int state, int x, int y)
 
 void keyboard(unsigned char key, int x, int y)
 {
-    if (key == '=')
-    {
+    if(key == '='){
         zoom *= 1.1f;
     }
-    else if (key == '-')
-    {
+    else if(key == '-'){
         zoom /= 1.1f;
+    }
+    else if(key == 'r'){
+        zoom = 200.0f;
+        centerX = 0.0f;
+        centerY = 0.0f;
+    }
+    else if(key == 'd' && iterations < 5096){
+        iterations *= 2;
+    }
+    else if(key == 'a' && iterations > 1){
+        iterations /= 2;
     }
     glutPostRedisplay();
 }
@@ -96,26 +129,26 @@ int main(int argc, char** argv)
 {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(400, 400);
+    glutInitWindowSize(800, 800);
     glutInitWindowPosition(100, 100);
     glutCreateWindow("Mandelbrot Fractal");
     glutDisplayFunc(display);
     glutReshapeFunc(reshape);
     glutMouseFunc(mouse);
+    glutMotionFunc(motion);
     glutKeyboardFunc(keyboard);
 
     glewInit();
 
-    shader = new Glsl("Trabalho6\\src\\mandelbrot.vert", "Trabalho6\\src\\mandelbrot.frag");
+    shader = new Glsl("glsl_1_Fixed_programmable\\src\\mandelbrot.vert", "glsl_1_Fixed_programmable\\src\\mandelbrot.frag");
 
     loc_u_resolution = shader->getUniformLoc("u_resolution");
     loc_u_center = shader->getUniformLoc("u_center");
     loc_u_zoom = shader->getUniformLoc("u_zoom");
-    loc_iTime = shader->getUniformLoc("iTime");
-
+    loc_iterations = shader->getUniformLoc("iterations");
 
     init_gl();
-    glutTimerFunc(0, timer, 0); // Inicia o timer imediatamente
+    glutTimerFunc(0, timer, 0); 
     glutMainLoop();
     return 0;
 }
