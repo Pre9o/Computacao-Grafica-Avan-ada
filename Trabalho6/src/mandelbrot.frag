@@ -8,15 +8,6 @@ uniform float u_zoom;
 
 float mandelbrot(in vec2 c){
     
-    float c2 = dot(c, c);
-
-    if(512.0 * c2 * c2 - 96.0 * c2 + 32.0 * c.x - 3.0 < 0.0){
-        return 0.0;
-    } 
-    if(16.0 * (c2 + 2.0 * c.x + 1.0) - 1.0 < 0.0){
-        return 0.0;
-    }
-    
     const float B = 512.0;
     float l = 0.0;
     vec2 z = vec2(0.0);
@@ -29,10 +20,9 @@ float mandelbrot(in vec2 c){
         l += 1.0;
     }
 
-    if(l > 512.0){
+    if(l > 1024.0){
         return 0.0;
     } 
-
 
     return l;
 }

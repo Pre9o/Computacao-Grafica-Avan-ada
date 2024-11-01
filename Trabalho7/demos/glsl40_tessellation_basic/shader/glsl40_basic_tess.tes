@@ -1,0 +1,51 @@
+#version 400
+
+layout(quads, equal_spacing, cw) in;
+
+uniform mat4 MVP;
+
+uniform sampler2D displacementmapSampler;
+
+in vec4 tcPosition[];
+in vec2 tcTexCoord[];
+
+out vec2 teTexCoord;
+out vec4 tePosition;
+
+vec4 lerp2d(vec4 p1, vec4 p2, vec4 p3, vec4 p4, float u, float v) {
+    return p1 * (1 - u) * (1 - v) +
+           p2 * u * (1 - v) +
+           p3 * v * (1 - u) +
+           p4 * u * v;
+}
+
+vec2 lerp2d(vec2 p1, vec2 p2, vec2 p3, vec2 p4, float u, float v) {
+    return p1 * (1 - u) * (1 - v) +
+           p2 * u * (1 - v) +
+           p3 * v * (1 - u) +
+           p4 * u * v;
+}
+
+void main() {
+    float u = gl_TessCoord.x;
+    float v = gl_TessCoord.y;
+
+    vec4 p0 = tcPosition[0];
+    vec4 p1 = tcPosition[1];
+    vec4 p2 = tcPosition[2];
+    vec4 p3 = tcPosition[3];
+
+    vec2 t0 = tcTexCoord[0];
+    vec2 t1 = tcTexCoord[1];
+    vec2 t2 = tcTexCoord[2];
+    vec2 t3 = tcTexCoord[3];
+    
+    tePosition = lerp2d(p0, p1, p3, p2, u, v);
+    teTexCoord = lerp2d(t0, t1, t3, t2, u, v);
+
+    float height = texture(displacementmapSampler, teTexCoord).z * 0.3f;
+    tePosition.y = height;
+
+    tePosition = MVP * tePosition;
+    gl_Position = tePosition;
+}

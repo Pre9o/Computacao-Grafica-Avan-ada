@@ -1,0 +1,116 @@
+﻿  TessellatedQuad.cpp
+  main.cpp
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(64,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(64,11):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(49,9):
+          ao compilar o modelo de classe 'glm::tvec2'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(65,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(66,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(64,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(64,11):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(49,9):
+          ao compilar o modelo de classe 'glm::tvec3'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(65,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(66,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(118,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(118,12):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(103,9):
+          ao compilar o modelo de classe 'glm::tvec4'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(119,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(120,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(64,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(64,11):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(49,9):
+          ao compilar o modelo de classe 'glm::tvec2'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(65,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec2.hpp(66,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(64,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(64,11):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(49,9):
+          ao compilar o modelo de classe 'glm::tvec3'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(65,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec3.hpp(66,11): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(118,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(118,12):
+      o contexto de instanciação do modelo (o mais antigo primeiro) é
+          C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(103,9):
+          ao compilar o modelo de classe 'glm::tvec4'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(119,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\glm\detail\type_vec4.hpp(120,12): warning C4201: extensão não padrão usada: struct/union sem nome
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\utils\glslprogram.h(56,34): warning C4100: 'other': parâmetro formal não referenciado
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\utils\glslprogram.h(57,45): warning C4100: 'other': parâmetro formal não referenciado
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\utils\glslprogram.h(56,34): warning C4100: 'other': parâmetro formal não referenciado
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\utils\glslprogram.h(57,45): warning C4100: 'other': parâmetro formal não referenciado
+  (compilando o arquivo fonte 'src/main.cpp')
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(56,24): warning C4100: 'error': parâmetro formal não referenciado
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(62,30): warning C4459: a declaração de 'window' oculta uma declaração global
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(31,13):
+      consulte a declaração de 'window'
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(62,77): warning C4100: 'mods': parâmetro formal não referenciado
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(62,51): warning C4100: 'scancode': parâmetro formal não referenciado
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\main.cpp(135,39): warning C4316: 'TessellatedQuad': objeto alocado na pilha pode não estar alinhado 16
+C:\Program Files (x86)\Windows Kits\10\Include\10.0.22621.0\shared\minwindef.h(130,9): warning C4005: 'APIENTRY': redefinição de macro
+  (compilando o arquivo fonte 'src/TessellatedQuad.cpp')
+      C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\include\GLFW\glfw3.h(85,11):
+      ver a definição anterior de "APIENTRY"
+  
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\TessellatedQuad.cpp(96,18): warning C4244: '=': conversão de 'int' para 'unsigned char', possível perda de dados
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\TessellatedQuad.cpp(99,18): warning C4305: '=': truncamento de 'int' para 'unsigned char'
+C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\src\TessellatedQuad.cpp(99,18): warning C4309: '=': truncamento de valor constante
+  glsl40_tessellation_basic.vcxproj -> C:\Users\naoca\OneDrive\Área de Trabalho\PROGRAMAÇÃO\cga\Demos\Demos\Demos_GL 4.x\bin\glsl40_tessellation_basic.exe
+  compying shaders
+  C:\Users\naoca\OneDrive\┴rea de Trabalho\PROGRAMAÃ├O\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\shader\glsl40_basic_tess.frag
+  C:\Users\naoca\OneDrive\┴rea de Trabalho\PROGRAMAÃ├O\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\shader\glsl40_basic_tess.geom
+  C:\Users\naoca\OneDrive\┴rea de Trabalho\PROGRAMAÃ├O\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\shader\glsl40_basic_tess.tcs
+  C:\Users\naoca\OneDrive\┴rea de Trabalho\PROGRAMAÃ├O\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\shader\glsl40_basic_tess.tes
+  C:\Users\naoca\OneDrive\┴rea de Trabalho\PROGRAMAÃ├O\cga\Demos\Demos\Demos_GL 4.x\demos\glsl40_tessellation_basic\shader\glsl40_basic_tess.vert
+  5 arquivo(s) copiado(s)

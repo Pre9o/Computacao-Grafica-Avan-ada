@@ -1,0 +1,27 @@
+#version 400
+
+layout(vertices = 4) out;
+
+in uint vOuter[];
+in uint vInner[];
+in vec2 vTexCoord[];
+in vec4 vPosition[];
+
+out vec2 tcTexCoord[];
+out vec4 tcPosition[];
+
+void main()
+{
+    tcTexCoord[gl_InvocationID] = vTexCoord[gl_InvocationID];
+    tcPosition[gl_InvocationID] = vPosition[gl_InvocationID];
+
+    if (gl_InvocationID == 0)
+    {
+        gl_TessLevelOuter[0] = vOuter[0];
+        gl_TessLevelOuter[1] = vOuter[1];
+        gl_TessLevelOuter[2] = vOuter[2];
+        gl_TessLevelOuter[3] = vOuter[3];
+        gl_TessLevelInner[0] = vInner[0];
+        gl_TessLevelInner[1] = vInner[1];
+    }
+}
