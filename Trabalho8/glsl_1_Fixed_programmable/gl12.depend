@@ -378,7 +378,7 @@
 	<GL/gl.h>
 	<GL/glu.h>
 
-1730907467 source:c:\users\naoca\desktop\cga\demos\demos\demos_gl 3.x\glsl_1_fixed_programmable\src\main.cpp
+1730908585 source:c:\users\naoca\desktop\cga\demos\demos\demos_gl 3.x\glsl_1_fixed_programmable\src\main.cpp
 	<complex>
 	<vector>
 	<cmath>
@@ -388,7 +388,6 @@
 	<chrono>
 	"glsl.h"
 	"MyGL.h"
-	"Vector2.h"
 
 1304472886 c:\users\naoca\desktop\cga\demos\demos\demos_gl 3.x\glsl_1_fixed_programmable\src\mygl.h
 	<GL/glew.h>

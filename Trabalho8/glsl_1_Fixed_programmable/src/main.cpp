@@ -34,7 +34,9 @@ Glsl *shader1 = NULL, *shader2 = NULL;
 MyGL *gl = NULL;
 
 float ang = 0;
+float last_sample = 0;
 float time_var = 0;
+float sample_time = 0;
 int contador = 0;
 
 steady_clock::time_point start_time;
@@ -171,7 +173,7 @@ void draw_epicylcle_star() {
 }
 
 
-void draw_epicycles(const vector<signalDeconstructed>& coeffs, float time, float time_points, float x = 0, float y = 0, float rotation = 0) {
+void draw_epicycles(const vector<signalDeconstructed>& coeffs, double time, int atualiza, float x = 0, float y = 0, float rotation = 0) {
     float prevX, prevY;
 
     for (int i = 0; i < coeffs.size(); i++) {
@@ -181,8 +183,8 @@ void draw_epicycles(const vector<signalDeconstructed>& coeffs, float time, float
         float phase = coeffs[i].phase;
         float amp = coeffs[i].range;
 
-        x += amp * cos(freq * time_points + phase + rotation);
-        y += amp * sin(freq * time_points + phase + rotation);
+        x += amp * cos(freq * time + phase + rotation);
+        y += amp * sin(freq * time + phase + rotation);
 
         glBegin(GL_LINE_LOOP);
         for (int j = 0; j < 100; ++j) {
@@ -199,14 +201,15 @@ void draw_epicycles(const vector<signalDeconstructed>& coeffs, float time, float
         glVertex2f(prevX, prevY);
         glVertex2f(x, y);
         glEnd();
-
-        if (i == coeffs.size() - 1 && time_points > 2 * PI) {
-            draw_star_epicycle[contador] = complex<float>(x, y);
-            contador += 1;
-            if (contador == N) {
-                contador = 0;
+        
+        if (atualiza == 1) {
+            if (i == coeffs.size() - 1) {
+                draw_star_epicycle[contador] = complex<float>(x, y);
+                contador += 1;
+                if (contador == N) {
+                    contador = 0;
+                }
             }
-            time_var = 0;
         }
     }
 }
@@ -220,14 +223,26 @@ void display(void) {
 
     steady_clock::time_point current_time = steady_clock::now();
     duration<float> elapsed_time = duration_cast<duration<float>>(current_time - start_time);
-    if (elapsed_time.count() >= (2 * PI / N)) {
-        time_var += 2 * PI / N;
-        start_time = current_time;
+    start_time = current_time;
+    double current_time_in_seconds = elapsed_time.count();
+
+    time_var += current_time_in_seconds * 0.1;
+
+    printf("time_var = %f\n", time_var);
+
+    double sample_delay = 2 * PI / N;
+
+    if (time_var > last_sample + sample_delay) {
+        sample_time += sample_delay;
+        last_sample = sample_time;
+        draw_epicycles(dft_result, sample_time, 1);
+
     }
+
+    draw_epicycles(dft_result, time_var, 0);
 
     
     // Desenhar os epiciclos e a estrela usando o tempo atual
-    draw_epicycles(dft_result, time_var, time_var);
 
     //draw_epicycles(cdft_result, current_time_in_seconds, current_time_points_in_seconds);
 
