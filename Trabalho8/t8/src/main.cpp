@@ -20,17 +20,13 @@ struct signalDeconstructed {
     float range;
 };
 
-const int N = 30; // Número de pontos para definir a estrela
+const int N = 170;
 vector<complex<float>> signal(N);
 vector<signalDeconstructed> dft_result(N);
 vector<signalDeconstructed> cdft_result(N);
 
 vector<complex<float>> draw_star_epicycle(N);
 
-GLint loc_u_projection;
-GLint loc_u_modelview;
-
-Glsl *shader1 = NULL, *shader2 = NULL;
 MyGL *gl = NULL;
 
 float ang = 0;
@@ -38,6 +34,7 @@ float last_sample = 0;
 float time_var = 0;
 float sample_time = 0;
 int contador = 0;
+bool modo = 1;
 
 steady_clock::time_point start_time;
 steady_clock::time_point last_time;
@@ -70,10 +67,8 @@ void init_signal() {
     for (int i = 0; i < 10; ++i) {
         double a = i * angle;
         if (i % 2 == 0) {
-            // Vértices externos
             main_vertices[i] = complex<float>(cos(a) * radius2, sin(a) * radius2);
         } else {
-            // Vértices internos
             main_vertices[i] = complex<float>(cos(a) * radius1, sin(a) * radius1);
         }
     }
@@ -84,10 +79,6 @@ void init_signal() {
             float t = static_cast<float>(j) / (N / 10 - 1);
             signal[i * (N / 10) + j] = main_vertices[i] * (1.0f - t) + main_vertices[next] * t;
         }
-    }
-
-    for (int i = 0; i < N; ++i) {
-        printf("signal[%d] = %f + %fi\n", i, signal[i].real(), signal[i].imag());
     }
 }
 
@@ -151,23 +142,23 @@ void compute_cdft() {
 void draw_star() {
     glBegin(GL_LINE_LOOP);
     for (int i = 0; i < signal.size(); ++i) {
-        glColor3f(0, 1, 0); // Cor preta
+        glColor3f(0, 1, 0); 
         glVertex2f(signal[i].real(), signal[i].imag());
     }
     glEnd();
 
-    // Desenhar um círculo preto preenchido em cada vértice
-    glColor3f(0, 0, 0); // Cor preta
+    /*
+    glColor3f(0, 0, 0); 
     for (int i = 0; i < signal.size(); ++i) {
         draw_circle(signal[i].real(), signal[i].imag(), 0.05);
-    }
+    }*/
 }
 
 void draw_epicylcle_star() {
-    glBegin(GL_LINE_LOOP);
-    for (int i = 0; i < draw_star_epicycle.size(); ++i) {
-        glColor3f(1, 0, 0);
+    glBegin(GL_LINES);
+    for (int i = 0; i < contador - 1; ++i) {
         glVertex2d(draw_star_epicycle[i].real(), draw_star_epicycle[i].imag());
+        glVertex2d(draw_star_epicycle[i + 1].real(), draw_star_epicycle[i + 1].imag());
     }
     glEnd();
 }
@@ -201,7 +192,7 @@ void draw_epicycles(const vector<signalDeconstructed>& coeffs, double time, int 
         glVertex2f(prevX, prevY);
         glVertex2f(x, y);
         glEnd();
-        
+
         if (atualiza == 1) {
             if (i == coeffs.size() - 1) {
                 draw_star_epicycle[contador] = complex<float>(x, y);
@@ -228,27 +219,30 @@ void display(void) {
 
     time_var += current_time_in_seconds * 0.1;
 
-    printf("time_var = %f\n", time_var);
-
     double sample_delay = 2 * PI / N;
 
     if (time_var > last_sample + sample_delay) {
         sample_time += sample_delay;
         last_sample = sample_time;
-        draw_epicycles(dft_result, sample_time, 1);
 
+        if (modo) {
+            draw_epicycles(dft_result, sample_time, 1);
+        } else {
+            draw_epicycles(cdft_result, sample_time, 1);
+        }
     }
 
-    draw_epicycles(dft_result, time_var, 0);
-
-    
-    // Desenhar os epiciclos e a estrela usando o tempo atual
-
-    //draw_epicycles(cdft_result, current_time_in_seconds, current_time_points_in_seconds);
-
-    glColor3f(1, 1, 1);
     draw_star();
-    draw_epicylcle_star();
+
+    if (modo) {
+        draw_epicycles(dft_result, time_var, 0);
+        glColor3f(1, 0, 0);
+        draw_epicylcle_star();
+    } else {
+        draw_epicycles(cdft_result, time_var, 0);
+        glColor3f(0, 0, 1);
+        draw_epicylcle_star();
+    }
 
     glutSwapBuffers();
 }
@@ -258,26 +252,46 @@ void reshape(int w, int h) {
     glViewport(0, 0, (GLsizei)w, (GLsizei)h);
     glMatrixMode(GL_PROJECTION);
     glLoadIdentity();
-    glOrtho(-10, 10, -10, 10, -100.0, 100.0);
+
+    float aspect_ratio = (float)w / (float)h;
+    float scale = 1.0; 
+
+    if (w <= h) {
+        glOrtho(-scale, scale, -scale / aspect_ratio, scale / aspect_ratio, -100.0, 100.0);
+    } else {
+        glOrtho(-scale * aspect_ratio, scale * aspect_ratio, -scale, scale, -100.0, 100.0);
+    }
+
+    glMatrixMode(GL_MODELVIEW);
+    glLoadIdentity();
+}
+
+void keyboard(unsigned char key, int x, int y) {
+    switch (key) {
+        case 27:
+            exit(0);
+            break;
+        case 'c':
+            modo = !modo;
+            draw_star_epicycle.clear();
+            break;
+    }
 }
 
 int main(int argc, char** argv) {
     glutInit(&argc, argv);
     glutInitDisplayMode(GLUT_DOUBLE | GLUT_RGB | GLUT_DEPTH);
-    glutInitWindowSize(400, 400);
+    glutInitWindowSize(600, 600);
     glutInitWindowPosition(100, 100);
-    glutCreateWindow("OpenGL Star DFT Visualization");
+    glutCreateWindow("Rafael Carneiro Pregardier");
     glutDisplayFunc(display);
     glutIdleFunc(display);
     glutReshapeFunc(reshape);
+    glutKeyboardFunc(keyboard);
 
     init_gl();
 
     gl = new MyGL();
-    shader1 = new Glsl("glsl_1_Fixed_programmable\\src\\1.vert", "glsl_1_Fixed_programmable\\src\\1.frag");
-
-    loc_u_projection = shader1->getUniformLoc("projectionMatrix");
-    loc_u_modelview = shader1->getUniformLoc("modelViewMatrix");
 
     init_signal();
     init_dft();

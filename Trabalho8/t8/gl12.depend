@@ -405,3 +405,56 @@
 
 1589217858 c:\users\naoca\desktop\cga\demos\demos\demos_gl 3.x\glsl_1_fixed_programmable\src\vector2.h
 
+1731002979 source:c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\src\glsl.cpp
+	"glsl.h"
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\src\glsl.h
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\include\gl\glew.h
+	<stddef.h>
+	<inttypes.h>
+	<stdint.h>
+	<inttypes.h>
+	<OpenGL/glu.h>
+	<GL/glu.h>
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\include\gl\glu.h
+	<stddef.h>
+	<GL/gl.h>
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\include\gl\gl.h
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\include\gl\glut.h
+	<windows.h>
+	<GL/gl.h>
+	<GL/glu.h>
+
+1731002979 source:c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\src\mygl.cpp
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+	<math.h>
+	"MyGL.h"
+
+1731002979 c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\src\mygl.h
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<stdlib.h>
+
+1731004490 source:c:\users\naoca\onedrive\햞ea de trabalho\programa플o\cga\demos\demos\demos_gl 3.x\t8\src\main.cpp
+	<complex>
+	<vector>
+	<cmath>
+	<GL/glew.h>
+	<GL/glut.h>
+	<stdio.h>
+	<chrono>
+	"glsl.h"
+	"MyGL.h"
+
